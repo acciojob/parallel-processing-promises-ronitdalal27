@@ -1,7 +1,6 @@
 //your JS code here. If required.
 const output = document.getElementById("output");
 const btn = document.getElementById("download-images-button");
-
 const images = [
   { url: "https://picsum.photos/id/237/200/300" },
   { url: "https://picsum.photos/id/238/200/300" },
@@ -24,11 +23,11 @@ function displayImages(images){
 }
 
 btn.addEventListener('click', () => { //on the click of the button we should start download
-	const dowloadPromises = images.map((image) => downloadImage(image)); //for every single image we will create a promise,which will be there inside dowmloadPromies
+	const downloadPromises = images.map((image) => downloadImage(image)); //for every single image we will create a promise,which will be there inside dowmloadPromies
 	Promise.all(downloadPromises)
 			.then((image) => displayImages(image))
 			.catch((error) => console.log(error));
-});
+})
 
 
 
